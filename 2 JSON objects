@@ -1,0 +1,13 @@
+1.	How to compare two JSON have the same properties without order?
+a.	var obj1 = { name: "Person 1", age:5 };
+b.	var obj2 = { age:5, name: "Person 1" };
+
+
+var obj1 = { name: "Person 1", age:5 };
+var obj2 = { age:5 ,name: "Person 1"};
+let same = JSON.stringify(obj1) === JSON.stringify(obj2)
+
+console.log(same)                         //false (checks for the key value and order)
+
+const _ = require("lodash")
+console.log(_.isEqual(obj1, obj2))        //true (checks for the key and value not the order)
